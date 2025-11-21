@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototyp SW – Python + MySQL</title>
+</head>
+<body>
+    <h1>Prototyp – Python Backend + MySQL Databáza</h1>
+
+    <button onclick="loadServer()">Načítať správu zo servera</button>
+    <button onclick="loadDatabase()">Načítať správu z databázy</button>
+
+    <p id="output"></p>
+
+    <script>
+        function loadServer() {
+            fetch("http://127.0.0.1:8080/hello")
+                .then(r => r.text())
+                .then(t => document.getElementById("output").innerText = t);
+        }
+
+        function loadDatabase() {
+            fetch("http://127.0.0.1:8080/db")
+                .then(r => r.text())
+                .then(t => document.getElementById("output").innerText = t);
+        }
+    </script>
+</body>
+</html>
